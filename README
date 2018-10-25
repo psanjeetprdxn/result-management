@@ -1,0 +1,9 @@
+Go to browser
+Type localhost/phpmyadmin
+Enter username and password mostly(root, root) or (root, ' ')
+select IMPORT and import result.sql file
+and you are good to go
+
+
+validation class under construction
+Till then keep tracking 
