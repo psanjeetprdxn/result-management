@@ -1,0 +1,10 @@
+
+.logout a{
+  float:right;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+
+.logout a:hover{
+  color:black;
+}
