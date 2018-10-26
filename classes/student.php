@@ -1,7 +1,7 @@
 <?php
-function __autoload($classname){
-  include "$classname.php";
-}
+// function __autoload($classname){
+//   include "$classname.php";
+// }
 
 class student extends dbConnection {
   protected $conn;

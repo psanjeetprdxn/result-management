@@ -46,8 +46,24 @@ if(isset($_SESSION['m_id'])){
         <div>
         <form action="add_subjects.php" method="post">
           <label>Name: </label>
-          <input type="text" name="name" placeholder="Name"><br>
-          <label>Year: </label><br>
+          <input type="text" name="name" placeholder="Name">
+          <?php
+          if(isset($_GET['nameError'])){
+            if($_GET['nameError'] == 'required'){
+              echo 'Name is required';
+            }
+          }
+          ?>
+          <br>
+          <label>Year: </label>
+          <?php
+          if(isset($_GET['yearError'])){
+            if($_GET['yearError'] == 'required'){
+              echo 'Year is required';
+            }
+          }
+          ?>
+          <br>
           <input type="radio" name="year" value="first" onchange="get_subjects(this.value)"> First Year<br>
           <input type="radio" name="year" value="second" onchange="get_subjects(this.value)"> Second Year<br>
           <input type="radio" name="year" value="third" onchange="get_subjects(this.value)"> Third Year<br>
@@ -57,7 +73,11 @@ if(isset($_SESSION['m_id'])){
           <div id="sub"></div>
           <input type="submit" value="Enter the marks">
           <?php
-
+          if(isset($_GET['marksInvalid'])){
+            if($_GET['marksInvalid']=='true'){
+              echo 'Please enter valid marks';
+            }
+          }
           if(isset($_GET['marksAdded'])){
             echo "Marks added successfully";
           }
@@ -65,20 +85,14 @@ if(isset($_SESSION['m_id'])){
             echo "Marks not added";
           }
 
-
          ?>
         </form>
 
         <?php
 
-
-
       }else{
         header("Location: ../index.php?notLogin=notLogin");
       }
-
-
-
 
       ?>
     </body>

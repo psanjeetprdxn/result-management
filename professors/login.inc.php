@@ -7,18 +7,24 @@ function __autoload($classname){
 $table = "professors";
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
+  //OBJECT FOR VALIDATOR CLASS
+  $validator = new validator();
   //Username validation
-  if(!empty($_POST['username'])){
+  if($validator->validateUsername($_POST['username'])){
     $username = $_POST['username'];
   }else{
     header('Location: login.php?usernameError=required');
+    return;
   }
+
   //Password validation
-  if(!empty($_POST['password'])){
-    $password= $_POST['password'];
+  if($validator->validatePassword($_POST['password'])){
+    $password = $_POST['password'];
   }else{
     header('Location: login.php?passwordError=required');
+    return;
   }
+
 }
 
 $login = new registration();

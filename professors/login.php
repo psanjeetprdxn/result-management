@@ -12,14 +12,18 @@
         <input type="text" name="username" placeholder="Username">
         <?php
         if(isset($_GET['usernameError'])){
-          echo "Username is required";
+          if($_GET['usernameError']=='required'){
+            echo 'Username required';
+          }
         }
         ?>
         <label>Password</label>
         <input type="password" name="password" placeholder="Password">
         <?php
         if(isset($_GET['passwordError'])){
-          echo "Password is required";
+          if($_GET['passwordError']=='required'){
+            echo 'Password required';
+          }
         }
         ?>
         <input type="submit" value="Login">

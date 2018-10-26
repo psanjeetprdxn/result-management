@@ -1,7 +1,10 @@
 <?php
-include '../classes/student.php';
-include '../classes/subject.php';
-include '../classes/marks.php';
+// include '../classes/student.php';
+// include '../classes/subject.php';
+// include '../classes/marks.php';
+function __autoload($classname){
+  include "../classes/$classname.php";
+}
 
 if(isset($_GET['year'])){
   $year = $_GET['year'];
